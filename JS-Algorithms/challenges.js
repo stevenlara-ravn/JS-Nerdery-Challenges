@@ -57,13 +57,36 @@ Invoking "circularArray(2)" should return "["Island", "Japan", "Israel", "German
 const COUNTRY_NAMES = ["Germany", "Norway", "Island", "Japan", "Israel"];
 
 const circularArray = (index) => {
-  // YOUR CODE HERE...
+  function resetIndex () {
+    let i = 0
+    let resetedIndex = 0;
+
+    while (i < index) {
+      if (resetedIndex === COUNTRY_NAMES.length - 1) {
+        resetedIndex = 0
+      } else {
+        resetedIndex++;
+      }
+
+      i++
+    }
+
+    return resetedIndex;
+  }
+
+  const resetedIndex = resetIndex(index)
+
+  const countries1 = COUNTRY_NAMES.slice(resetedIndex)
+  const countries2 = COUNTRY_NAMES.slice(0, resetedIndex)
+
+  return countries1.concat(countries2)
 };
 
 circularArray(2);
 circularArray(3);
 circularArray(5);
 circularArray(9);
+circularArray(12);
 
 /* *****
 Challenge 3
