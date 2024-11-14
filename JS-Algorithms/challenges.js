@@ -14,7 +14,7 @@ Invoking "readableTime(3690)" should return "01:01:30" (HH:MM:SS)
 
 const readableTime = (seconds) => {
   const minutesFromSeconds = seconds / 60;
-  const hoursFromMinutes = Math.floor(minutesFromSeconds / 60)
+  const hoursFromMinutes = Math.floor(minutesFromSeconds / 60);
   const leftMinutes = Math.floor(minutesFromSeconds - (hoursFromMinutes * 60));
   const leftSeconds = seconds - (hoursFromMinutes * 60 * 60) - (leftMinutes * 60);
 
@@ -22,14 +22,14 @@ const readableTime = (seconds) => {
     hours: hoursFromMinutes,
     minutes: leftMinutes,
     seconds: leftSeconds
-  }
+  };
 
   Object.keys(time).forEach((value, index, array) => {
-    const formattedValue = String(time[value]).padStart(2, 0)
-    time[value] = formattedValue
+    const formattedValue = String(time[value]).padStart(2, 0);
+    time[value] = formattedValue;
   });
 
-  return `${time.hours}:${time.minutes}:${time.seconds}`
+  return `${time.hours}:${time.minutes}:${time.seconds}`;
 };
 
 readableTime(458);
