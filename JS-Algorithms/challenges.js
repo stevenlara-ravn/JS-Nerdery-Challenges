@@ -110,7 +110,7 @@ The last 3 digits for the sum of powers from 1 to 10 is "317"
 
 const ownPower = (number, lastDigits) => {
   const iterationNumber = Array(number).fill().map((_, index) => index + 1)
-  const ownPowersValues = iterationNumber.reduce((prevValue, currentValue) => prevValue + (currentValue ** currentValue));
+  const ownPowersValues = iterationNumber.reduce((prevValue, currentValue) => BigInt(prevValue) + (BigInt(currentValue) ** BigInt(currentValue)));
 
   return BigInt(ownPowersValues).toString().slice(-lastDigits);
 };
@@ -137,7 +137,15 @@ Since 10! === 3628800 and you sum 3 + 6 + 2 + 8 + 8 + 0 + 0
 ***** */
 
 const digitSum = (n) => {
-  // YOUR CODE HERE...
+  function factorial (x) {
+    if (x === 1) return BigInt(1);
+    return BigInt(x) * factorial(x - 1);
+  }
+
+  const factorialDigit = factorial(n)
+  const factorialDigitArray = factorialDigit.toString().split('');
+
+  return factorialDigitArray.reduce((previousValue, currentValue) => Number(previousValue) + Number(currentValue))
 };
 
 digitSum(10);
