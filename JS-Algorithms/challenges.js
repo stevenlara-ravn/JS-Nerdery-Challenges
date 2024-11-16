@@ -168,11 +168,6 @@ Because the 12th index in the Fibonacci sequence is 144, and 144 has three digit
 ***** */
 
 const fibIndex = (n) => {
-  /**
-   * - function to generate fibo
-   * - iterar sobre el fibonacci y eonctrar el primero que tenga la cantidad de digitos del input
-   */
-
   let prevFibo = 0;
   let currentFibo = 1;
   let nextFibonacci;
