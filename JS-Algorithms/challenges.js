@@ -140,14 +140,14 @@ Because the 12th index in the Fibonacci sequence is 144, and 144 has three digit
 const fibIndex = (n) => {
   let prevFibo = 0;
   let currentFibo = 1;
-  let nextFibonacci;
+  let nextFibo;
   let index = 0;
 
   for (; prevFibo.toString().length < n; index++) {
-    nextFibonacci = prevFibo + currentFibo;
+    nextFibo = prevFibo + currentFibo;
 
     prevFibo = currentFibo;
-    currentFibo = nextFibonacci;
+    currentFibo = nextFibo;
   }
 
   return index;
